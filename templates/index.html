@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Fake Job Detector</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<header class="header">
+    <div>
+        <h1>Fake Job Detector</h1>
+        <p>AI-ready Job & Internship Risk Assessment</p>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>Scan a Job Opportunity</h2>
+
+        <p class="description">
+            Paste a job description, recruitment message,
+            URL, or recruiter email.
+        </p>
+
+        <label for="inputType">Input Type</label>
+
+        <select id="inputType">
+            <option value="job">Job / Internship</option>
+            <option value="message">Recruitment Message</option>
+            <option value="email">Email</option>
+            <option value="url">Website URL</option>
+        </select>
+
+
+        <label for="jobText">
+            Job Description / Message
+        </label>
+
+        <textarea
+            id="jobText"
+            placeholder="Paste the job description or recruitment message here..."
+        ></textarea>
+
+
+        <label for="jobUrl">
+            Job / Company URL
+        </label>
+
+        <input
+            type="text"
+            id="jobUrl"
+            placeholder="https://example.com/job"
+        >
+
+
+        <label for="recruiterEmail">
+            Recruiter Email
+        </label>
+
+        <input
+            type="email"
+            id="recruiterEmail"
+            placeholder="recruiter@company.com"
+        >
+
+
+        <button id="scanButton">
+            🔍 Analyze Opportunity
+        </button>
+
+        <div id="loading" class="loading hidden">
+            Analyzing...
+        </div>
+
+    </section>
+
+
+    <section id="resultSection" class="card hidden">
+
+        <h2>Risk Assessment</h2>
+
+        <div class="risk-box">
+
+            <div id="riskScore" class="score">
+                0
+            </div>
+
+            <div>
+                <p class="label">Risk Score</p>
+
+                <h3 id="riskLevel">
+                    -
+                </h3>
+            </div>
+
+        </div>
+
+
+        <div class="recommendation">
+            <strong>Safety Recommendation</strong>
+
+            <p id="recommendation"></p>
+        </div>
+
+
+        <h3>Detected Indicators</h3>
+
+        <div id="findings"></div>
+
+
+        <div class="analysis-grid">
+
+            <div>
+                <h3>Company Analysis</h3>
+                <p id="companyAnalysis"></p>
+            </div>
+
+            <div>
+                <h3>URL Analysis</h3>
+                <p id="urlAnalysis"></p>
+            </div>
+
+            <div>
+                <h3>Email Analysis</h3>
+                <p id="emailAnalysis"></p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>
+        Fake Job Detector • Risk assessment, not a guarantee of authenticity.
+    </p>
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
